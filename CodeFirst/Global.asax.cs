@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CodeFirst.DLA;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +14,10 @@ namespace CodeFirst
     {
         protected void Application_Start()
         {
+            //add line
+            Database.SetInitializer<DBContext>(new DropCreateDatabaseIfModelChanges<DBContext>());
+
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
