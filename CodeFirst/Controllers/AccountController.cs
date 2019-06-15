@@ -2,6 +2,7 @@
 using CodeFirst.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace CodeFirst.Controllers
 {
+    //[AllowAnonymous]
     public class AccountController : Controller
     {
         // GET: Account
@@ -17,6 +19,7 @@ namespace CodeFirst.Controllers
             return View();
         }
 
+        
         public ActionResult Register()
         {
             return View();
@@ -25,6 +28,7 @@ namespace CodeFirst.Controllers
         [HttpPost]
         public ActionResult Register(UserAccount account)
         {
+            
             if (ModelState.IsValid)
             {
                 using(DBContext dBContext = new DBContext())
@@ -55,9 +59,7 @@ namespace CodeFirst.Controllers
         [HttpPost]
         public ActionResult Login(UserAccount user)
         {
-            if (ModelState.IsValid)
-            {
-                using (DBContext dB = new DBContext())
+            using (DBContext dB = new DBContext())
                 {
                     if(dB.userAccounts.Where(m => m.Email == user.Email && m.Password == user.Password).FirstOrDefault() == null)
                     {
@@ -71,7 +73,6 @@ namespace CodeFirst.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                 }
-            }
             return View();
         }
 

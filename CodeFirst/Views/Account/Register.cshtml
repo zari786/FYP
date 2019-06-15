@@ -1,8 +1,13 @@
 ﻿@model CodeFirst.Models.UserAccount
 
-@{
-    ViewBag.Title = "Register";
-}
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<div class="inner_page_about">
+</div>
 
 <div style="text-align:center;">
     <h3>AL-NASEEB AVIATION</h3>
@@ -36,7 +41,7 @@
                     @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
                         @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger col-md-3" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -102,16 +107,15 @@
 
 
         <div class="row">
-            <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3"></div>
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+            <div class="col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
+            <div class="col-md-8 col-sm-8 col-lg-8 col-xs-8">
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10" style="text-align:center;">
                         <input type="submit" value="Signup" class="btn btn-default" />
-                        <p style="text-align:center;">Already Register? @Html.ActionLink("Login", "Login", "Account")</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3"></div>
+            <div class="col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
         </div>
     </div>
 }

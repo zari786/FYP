@@ -1,26 +1,15 @@
-﻿
-
-@if (Session["Email"] == null)
+﻿@if (Session["Email"] == null)
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Register", "Register", "Account")
-        </li>
-        <li>
-            @Html.ActionLink("Login", "Login", "Account")
-        </li>
+        <li><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>@Html.ActionLink("Register", "Register", "Account")</li>
+        <li><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>@Html.ActionLink("Login", "Login", "Account")</li>
     </ul>
 }
 
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hi! " + Session["Name"], "Index", "Home")
-        </li>
-        <li>
-            @Html.ActionLink("Logout", "Logout", "Account")
-        </li>
+        <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @Html.ActionLink("Hi! " + Session["Email"], "Index", "Home")</li>
+        <li><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> @Html.ActionLink("Logout", "Logout", "Account")</li>
     </ul>
 }
-

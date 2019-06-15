@@ -19,8 +19,9 @@ namespace CodeFirst.Models
         public string Email { get; set; }
 
         [Required(AllowEmptyStrings =false,ErrorMessage ="Password is Required")]
-        [RegularExpression(@"^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$", ErrorMessage = "Password must contain at least one letter, one number and more than six charaters")]
+        //[RegularExpression(@"^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$", ErrorMessage = "Password must contain at least one letter, one number and more than six charaters")]
         [DataType(DataType.Password)]
+        [MinLength(8, ErrorMessage = "Minimum 8 character required")]
         public string Password { get; set; }
 
 

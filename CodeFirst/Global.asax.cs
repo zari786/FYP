@@ -17,7 +17,7 @@ namespace CodeFirst
             //add line
             Database.SetInitializer<DBContext>(new DropCreateDatabaseIfModelChanges<DBContext>());
 
-
+            //GlobalFilters.Filters.Add(new AuthorizeAttribute());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
