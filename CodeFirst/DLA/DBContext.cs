@@ -13,6 +13,7 @@ namespace CodeFirst.DLA
         public DBContext() : base("MyConString") { }
         
         public DbSet<UserAccount> userAccounts { get; set; }
+        public DbSet<Services> services { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

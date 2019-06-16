@@ -8,6 +8,12 @@ namespace CodeFirst.Models
 {
     public class UserAccount
     {
+
+        public UserAccount()
+        {
+            services = new List<Services>();
+        }
+
         [Key]
         public int CustomerId { get; set; }
 
@@ -36,5 +42,7 @@ namespace CodeFirst.Models
         public string Address { get; set; }
 
         public string Country { get; set; }
+
+        public List<Services> services { get; set; }
     }
 }
