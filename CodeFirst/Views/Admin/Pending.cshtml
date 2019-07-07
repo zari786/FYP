@@ -1,0 +1,170 @@
+﻿@model IEnumerable<CodeFirst.Models.Services>
+
+@{
+    ViewBag.Title = "Pending";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SB Admin - Dashboard</title>
+    <!-- Custom fonts for this template-->
+    <link href="~/Admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <!-- Page level plugin CSS-->
+    <link href="~/Admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+    <!-- Custom styles for this template-->
+    <link href="~/Admin/css/sb-admin.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+    <!-- /#wrapper -->
+    <div id="content-wrapper">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegistrationNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrivalRoute)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrivalDestination)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MTOW)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PassengerHandling)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ATCFlightPlan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LoadingOffLoading)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoOfPassenger)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoOfMeal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MealInformation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeOfFuel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Itenary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntryPoint)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExitPoint)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegistrationNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalRoute)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalDestination)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MTOW)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PassengerHandling)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ATCFlightPlan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoadingOffLoading)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoOfPassenger)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoOfMeal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MealInformation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeOfFuel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Itenary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryPoint)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExitPoint)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ServicesId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ServicesId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ServicesId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+</body>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="~/Admin/vendor/chart.js/Chart.min.js"></script>
+        <script src="~/Admin/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="~/Admin/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="~/Admin/js/sb-admin.min.js"></script>
+
+        <!-- Demo scripts for this page-->
+        <script src="~/Admin/js/demo/datatables-demo.js"></script>
+        <script src="~/Admin/js/demo/chart-area-demo.js"></script>

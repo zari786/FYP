@@ -1,0 +1,38 @@
+﻿
+
+
+@model CodeFirst.Models.Services
+
+@{
+    ViewBag.Title = "Cattering";
+}
+
+<div class="inner_page_about">
+</div>
+<br />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-6">
+            <img src="~/images/refueling.png" alt="pic" style="float:left" width="600" height="400" />
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-6">
+            <h3>Cattering Services</h3>
+            <hr />
+            <p>
+                ALN Aviation arranges - on request, a wide variety of meals catering from First Class dishes to Economy meals and snacks, which are prepared to exact specifications by reputed airline Caterers. ALN Aviation also plans to extend the International standard of Catering services.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-sm-6 col-lg-6"></div>
+        <div class="col-6 col-sm-6 col-lg-6">
+            @Html.ActionLink("Click to get Cattering", "GetCattering", "Services", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+
+</div>
+<body>
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>

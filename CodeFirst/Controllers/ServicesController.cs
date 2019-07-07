@@ -16,13 +16,24 @@ namespace CodeFirst.Controllers
             return View();
         }
 
+        
         public ActionResult GroundHandling()
         {
             return View();
         }
+        
+        public ActionResult GetGroundHandling()
+        {
+            if (Session["Email"] == null)
+            {
+                ViewBag.ErrorMessage = "Login to access services";
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
 
         [HttpPost]
-        public ActionResult GroundHandling(Services services)
+        public ActionResult GetGroundHandling(Services services)
         {
             if (ModelState.IsValid)
             {
@@ -31,12 +42,105 @@ namespace CodeFirst.Controllers
                         dBContext.services.Add(services);
                         dBContext.SaveChanges();
                         ModelState.Clear();
-                    return RedirectToAction("Home/Index");
+                    return RedirectToAction("Index" , "Home");
                 }
             }
             ModelState.AddModelError("Error", "Eroor Occur");
             return View();
         }
 
+        public ActionResult Refueling()
+        {
+            return View();
+        }
+
+        public ActionResult GetRefueling()
+        {
+            if (Session["Email"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetRefueling(Services services)
+        {
+            if (ModelState.IsValid)
+            {
+                using (DBContext dBContext = new DBContext())
+                {
+                    dBContext.services.Add(services);
+                    dBContext.SaveChanges();
+                    ModelState.Clear();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            ModelState.AddModelError("Error", "Eroor Occur");
+            return View();
+        }
+
+        
+        public ActionResult Cattering()
+        {
+            return View();
+        }
+
+        public ActionResult GetCattering()
+        {
+            if (Session["Email"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetCattering(Services services)
+        {
+            if (ModelState.IsValid)
+            {
+                using (DBContext dBContext = new DBContext())
+                {
+                    dBContext.services.Add(services);
+                    dBContext.SaveChanges();
+                    ModelState.Clear();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            ModelState.AddModelError("Error", "Eroor Occur");
+            return View();
+        }
+
+        public ActionResult OverFlyPermit()
+        {
+            return View();
+        }
+
+        public ActionResult GetOverFlyPermit()
+        {
+            if (Session["Email"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetOverFlyPermit(Services services)
+        {
+            if (ModelState.IsValid)
+            {
+                using (DBContext dBContext = new DBContext())
+                {
+                    dBContext.services.Add(services);
+                    dBContext.SaveChanges();
+                    ModelState.Clear();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            ModelState.AddModelError("Error", "Eroor Occur");
+            return View();
+        }
     }
 }

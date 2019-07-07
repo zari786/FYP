@@ -16,6 +16,19 @@ namespace CodeFirst.Controllers
         // GET: Account
         public ActionResult Index()
         {
+            List<string> CountryList = new List<string>();
+            CultureInfo[] CInfoList = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+            foreach (CultureInfo CInfo in CInfoList)
+            {
+                RegionInfo R = new RegionInfo(CInfo.LCID);
+                if (!(CountryList.Contains(R.EnglishName)))
+                {
+                    CountryList.Add(R.EnglishName);
+                }
+            }
+
+            CountryList.Sort();
+            ViewBag.Message = CountryList;
             return View();
         }
 
@@ -24,30 +37,32 @@ namespace CodeFirst.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         public ActionResult Register(UserAccount account)
         {
-            
+
             if (ModelState.IsValid)
             {
                 using(DBContext dBContext = new DBContext())
                 {
-                    if (dBContext.userAccounts.Where(m => m.Email == account.Email) == null)
-                    {
+                    //if (dBContext.userAccounts.Where(m => m.Email == account.Email) == null)
+                    //{
                         dBContext.userAccounts.Add(account);
                         dBContext.SaveChanges();
                         ModelState.Clear();
                         ViewBag.Message = "Registered Successfully";
-                    }
+                    return View();
+                    //}
 
-                    else
-                    {
-                        ModelState.AddModelError("Error", "Email Already Exists");
-                    }
+                    //else
+                    //{
+                        
+                    //}
                 }
                 
             }
+            ModelState.AddModelError("Error", "Email Already Exists");
             return View();
         }
 
@@ -68,6 +83,7 @@ namespace CodeFirst.Controllers
                     }
                     else
                     {
+                        Response.Write("<script>alert('You are logged in as" + user.Name + "') </script>");
                         Session["Name"] = user.Name;
                         Session["Email"] = user.Email.ToString();
                         return RedirectToAction("Index", "Home");

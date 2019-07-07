@@ -1,0 +1,35 @@
+﻿@model CodeFirst.Models.Services
+
+@{
+    ViewBag.Title = "Refueling";
+}
+
+<div class="inner_page_about">
+</div>
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-6">
+            <img src="~/images/refueling.png" alt="pic" style="float:left" width="600" height="400" />
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-6">
+            <h3>Refueling Services</h3>
+            <hr />
+            <p>
+                Ground Handling being an  integral part of Air Operations, is performed under ramp security regulations, taking the necessary precautions against all risks. High standard of flight ground safety and smooth conduct of operations are our primary motive. Ramp Services starts with entering of air-plane into frequency and finalized with push-back (pushing of the aircraft). All specialized equipment is operated by highly trained personnel for successful accomplishment of ramp services.
+                ALN Aviation Ltd. has grown rapidly since its inception in 2006. Operational and technological developments in the industry, changing competitive conditions, and the expectations of our customers make the change and development indispensable for our company in order to maximize our service quality and reach our growth targets. Through a combination of organic growth and the development of niche opportunities, we have established ourselves as a major force in the international ground handling industry. Delivering a consistent and reliable operation, focused on meeting the needs of our airline customers, is at the center of everything we do.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-sm-6 col-lg-6"></div>
+        <div class="col-6 col-sm-6 col-lg-6">
+            @Html.ActionLink("Click to get Refueling", "GetRefueling", "Services", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+
+</div>
+<body>
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>

@@ -1,0 +1,36 @@
+﻿@model CodeFirst.Models.Services
+
+@{
+    ViewBag.Title = "Refueling";
+}
+
+<div class="inner_page_about">
+</div>
+<br />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-6">
+            <img src="~/images/refueling.png" alt="pic" style="float:left" width="600" height="400" />
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-6">
+            <h3>OverFly Permit Services</h3>
+            <hr />
+            <p>
+                Before your aircraft can fly over a country, through their airspace or land on their runways, overflight permits must be obtained. We specialise in the acquisition of these permits for both landing and overflight purposes, providing you with round the clock support so that wherever you are in the world, we have you covered. The laws surrounding overflight permits for flight clearance are plentiful and without the industry knowledge and contacts, they’re potentially very expensive to navigate.
+                Wherever you are in the world regardless of the time, ALN Aviation have the industry experience and contacts to obtain your permits. Trust us when we say; whether you are a private pilot, if you’re delivering an aircraft or running a passenger charter, independently organising your own overflight permits will be both stressful and costly. We offer a very reasonable pricing structure, thanks to our worldwide contacts we’re able to source the lowest fares and feed those savings back to our customers.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-sm-6 col-lg-6"></div>
+        <div class="col-6 col-sm-6 col-lg-6">
+            @Html.ActionLink("Click to get Overfly Permit", "GetOverFlyPermit", "Services", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+
+</div>
+<body>
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
