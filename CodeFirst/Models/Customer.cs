@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CodeFirst.Models
 {
-    public class UserAccount
+    public class Customer
     {
 
-        public UserAccount()
+        public Customer()
         {
             services = new List<Services>();
         }
@@ -25,11 +27,14 @@ namespace CodeFirst.Models
         public string Email { get; set; }
 
         [Required(AllowEmptyStrings =false,ErrorMessage ="Password is Required")]
-        //[RegularExpression(@"^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$", ErrorMessage = "Password must contain at least one letter, one number and more than six charaters")]
         [DataType(DataType.Password)]
         [MinLength(8, ErrorMessage = "Minimum 8 character required")]
         public string Password { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Confirm Password is Required")]
+        [DataType(DataType.Password)]
+        [System.ComponentModel.DataAnnotations.Compare("Password",ErrorMessage = "Password and Confirm Password Does not Match")]
+        public string ConfirmPassword { get; set; }
 
         public string JobTitle { get; set; }
 
@@ -41,8 +46,17 @@ namespace CodeFirst.Models
 
         public string Address { get; set; }
 
+        [Required(AllowEmptyStrings =false, ErrorMessage ="Please Select the Country.")]
         public string Country { get; set; }
 
+        [ScaffoldColumn(false)]
+        public bool isEmailVerified { get; set; }
+        [ScaffoldColumn(false)]
+        public System.Guid ActivationCode { get; set; }
+        [ScaffoldColumn(false)]
+        public string ResetPassword { get; set; }
+
         public List<Services> services { get; set; }
+
     }
 }

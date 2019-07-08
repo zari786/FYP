@@ -17,7 +17,7 @@ namespace CodeFirst.DLA
         protected override void Seed(DBContext context)
         {
             base.Seed(context);
-            UserAccount userAccount = new UserAccount()
+            Customer userAccount = new Customer()
             {
                 Name = "Zaryab",
                 Email = "zaryab@gmail.com",

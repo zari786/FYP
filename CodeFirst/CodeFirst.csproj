@@ -130,14 +130,16 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="DLA\Crypto.cs" />
     <Compile Include="DLA\DataInitilizer.cs" />
     <Compile Include="DLA\DBContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\Services.cs" />
-    <Compile Include="Models\UserAccount.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1959,7 +1961,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_loginPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Services\GroundHandling.cshtml" />
     <Content Include="Views\Services\Refueling.cshtml" />
     <Content Include="Views\Services\Cattering.cshtml" />
@@ -1972,6 +1973,10 @@
     <Content Include="Views\Services\GetOverFlyPermit.cshtml" />
     <Content Include="Views\Services\GetRefueling.cshtml" />
     <Content Include="Views\Services\GetCattering.cshtml" />
+    <Content Include="Views\Account\VerifyAccount.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

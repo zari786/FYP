@@ -8,6 +8,8 @@ namespace CodeFirst.Models
 {
     public class LoginModel
     {
+        [Key]
+        public int Id { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email is Required.")]
         [DataType(DataType.EmailAddress)]
         public string Email { set; get; }
@@ -15,7 +17,9 @@ namespace CodeFirst.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password is Required.")]
         [DataType(DataType.Password)]
-        [MinLength(8, ErrorMessage = "Minimum 6 character required")]
         public string Password { set; get; }
+
+        [Display(Name ="Remember Me")]
+        public bool RememberMe { get; set; }
     }
 }

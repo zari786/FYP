@@ -12,12 +12,16 @@ namespace CodeFirst.DLA
     {
         public DBContext() : base("MyConString") { }
         
-        public DbSet<UserAccount> userAccounts { get; set; }
+        public DbSet<Customer> userAccounts { get; set; }
         public DbSet<Services> services { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<CodeFirst.Models.LoginModel> LoginModels { get; set; }
+
+        public System.Data.Entity.DbSet<CodeFirst.Models.ResetPasswordModel> ResetPasswordModels { get; set; }
     }
 }
