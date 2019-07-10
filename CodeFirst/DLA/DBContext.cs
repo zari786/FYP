@@ -14,7 +14,7 @@ namespace CodeFirst.DLA
         
         public DbSet<Customer> userAccounts { get; set; }
         public DbSet<Services> services { get; set; }
-
+        public DbSet<Admin> admins { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

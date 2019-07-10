@@ -13,6 +13,7 @@ namespace CodeFirst.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
+        [HttpGet]
         public ActionResult Index()
         {
             return View();

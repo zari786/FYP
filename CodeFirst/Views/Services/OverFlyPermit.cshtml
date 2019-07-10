@@ -6,6 +6,12 @@
 
 <div class="inner_page_about">
 </div>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-danger" style="text-align:center">
+        <strong>Error!</strong>@ViewBag.Message <p>Click here to</p> @Html.ActionLink("Login", "Login", "Account")
+    </div>
+}
 <br />
 
 <div class="container-fluid">
@@ -14,7 +20,9 @@
             <img src="~/images/refueling.png" alt="pic" style="float:left" width="600" height="400" />
         </div>
         <div class="col-md-6 col-lg-6 col-sm-6">
-            <h3>OverFly Permit Services</h3>
+            <div style="text-align:center; padding-top:10px">
+                <h4 style="color:#0ca2cf !important;">Overfly Permit Services</h4>
+            </div>
             <hr />
             <p>
                 Before your aircraft can fly over a country, through their airspace or land on their runways, overflight permits must be obtained. We specialise in the acquisition of these permits for both landing and overflight purposes, providing you with round the clock support so that wherever you are in the world, we have you covered. The laws surrounding overflight permits for flight clearance are plentiful and without the industry knowledge and contacts, they’re potentially very expensive to navigate.
@@ -24,8 +32,8 @@
     </div>
     <div class="row">
         <div class="col-6 col-sm-6 col-lg-6"></div>
-        <div class="col-6 col-sm-6 col-lg-6">
-            @Html.ActionLink("Click to get Overfly Permit", "GetOverFlyPermit", "Services", new { area = "" }, new { @class = "btn btn-primary" })
+        <div class="col-6 col-sm-6 col-lg-6" style="text-align:center">
+            @Html.ActionLink("Click to get Overfly Permit", "GetOverFlyPermit", "Services", new { area = "" }, new { @class = "btn btn-default" })
         </div>
     </div>
 

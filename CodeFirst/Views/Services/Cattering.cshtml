@@ -9,15 +9,23 @@
 
 <div class="inner_page_about">
 </div>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-danger" style="text-align:center">
+        <strong>Error!</strong>@ViewBag.Message <p>Click here to</p> @Html.ActionLink("Login", "Login", "Account")
+    </div>
+}
 <br />
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 col-lg-6 col-sm-6">
-            <img src="~/images/refueling.png" alt="pic" style="float:left" width="600" height="400" />
+            <img src="~/images/refueling.png" alt="pic" width="600vw" height="400vh" />
         </div>
         <div class="col-md-6 col-lg-6 col-sm-6">
-            <h3>Cattering Services</h3>
+            <div style="text-align:center; padding-top:10px">
+                <h4 style="color:#0ca2cf !important;">Cattering Services</h4>
+            </div>
             <hr />
             <p>
                 ALN Aviation arranges - on request, a wide variety of meals catering from First Class dishes to Economy meals and snacks, which are prepared to exact specifications by reputed airline Caterers. ALN Aviation also plans to extend the International standard of Catering services.
@@ -26,8 +34,8 @@
     </div>
     <div class="row">
         <div class="col-6 col-sm-6 col-lg-6"></div>
-        <div class="col-6 col-sm-6 col-lg-6">
-            @Html.ActionLink("Click to get Cattering", "GetCattering", "Services", new { area = "" }, new { @class = "btn btn-primary" })
+        <div class="col-6 col-sm-6 col-lg-6" style="text-align:center">
+            @Html.ActionLink("Click to get Cattering", "GetCattering", "Services", new { area = "" }, new { @class = "btn btn-default" })
         </div>
     </div>
 

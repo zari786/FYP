@@ -58,7 +58,7 @@ namespace CodeFirst.Controllers
                 var isExist = isEmailExist(account.Email);
                 if (isExist)
                 {
-                    ModelState.AddModelError("EmailExit", "Email Already Exist");
+                    ModelState.AddModelError("Error", "Email Already Exist go to Login Your Account");
                     return View(account);
                 }
                 account.Password = Crypto.Hash(account.Password);
@@ -87,41 +87,55 @@ namespace CodeFirst.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel login, string ReturnUrl)
+        public ActionResult Login(LoginModel login, string ReturnUrl,Admin admin)
         {
+            
             string message = "";
             ViewBag.Message = message;
 
             var result = db.userAccounts.Where(m => m.Email == login.Email).FirstOrDefault();
+            var result1 = db.userAccounts.Where(m => m.Email == login.Email && m.isEmailVerified).FirstOrDefault();
+            var result2 = db.admins.Where(m => m.Email == admin.Email && m.Password == admin.Password).FirstOrDefault();
             if (result != null)
             {
-                if (string.Compare(Crypto.Hash(login.Password), result.Password) == 0)
+                if(result1 != null)
                 {
-                    int timeout = login.RememberMe ? 525600 : 20;        //525600 minute = 1 year...
-                    var ticket = new FormsAuthenticationTicket(login.Email,login.RememberMe,timeout);
-                    string encrypted = FormsAuthentication.Encrypt(ticket);
-                    var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
-                    cookie.Expires = DateTime.Now.AddMinutes(timeout);
-                    cookie.HttpOnly = true;
-                    Response.Cookies.Add(cookie);
-                    Session["Email"] = login.Email;
-                    if (Url.IsLocalUrl(ReturnUrl))
+                    if (string.Compare(Crypto.Hash(login.Password), result.Password) == 0)
                     {
-                        return Redirect(ReturnUrl);
+                        int timeout = login.RememberMe ? 525600 : 20;        //525600 minute = 1 year...
+                        var ticket = new FormsAuthenticationTicket(login.Email, login.RememberMe, timeout);
+                        string encrypted = FormsAuthentication.Encrypt(ticket);
+                        var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
+                        cookie.Expires = DateTime.Now.AddMinutes(timeout);
+                        cookie.HttpOnly = true;
+                        Response.Cookies.Add(cookie);
+                        Session["Email"] = login.Email;
+                        if (Url.IsLocalUrl(ReturnUrl))
+                        {
+                            return Redirect(ReturnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        message = "Invalid Credentials Provided";
                     }
                 }
                 else
                 {
-                    message = "Invalid Credentials Provided";
+                    message = "Please Verify Your Email Address to access your account";
                 }
             }
-            else
+            else if(result2 != null)
             {
-                message = "Invalid Credentials Provided";
+                return RedirectToAction("Pending", "Admin");
+                
+            }
+            else {
+                message = "Account Does Not Exist";
             }
             ViewBag.Message = message;
             return View();
@@ -194,7 +208,7 @@ namespace CodeFirst.Controllers
                     result.ResetPassword = "";
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.SaveChanges();
-                    message = "New Password Updated Successfylly";
+                    message = "New Password Updated Successfully";
                 }
             else
             {
@@ -234,7 +248,6 @@ namespace CodeFirst.Controllers
             else if(emailFor == "ResetPassword")
             {
                 subject = "Reset Password!";
-
                 body = "<br /><br />Hi! We got request for reset your account password." +
                     "Please click on the link given below to reset your password" +
                     "<br /><br /><a href=" + link + ">Reset Password Link</a>";

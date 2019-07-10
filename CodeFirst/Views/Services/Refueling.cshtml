@@ -6,6 +6,12 @@
 
 <div class="inner_page_about">
 </div>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-danger" style="text-align:center">
+        <strong>Error!</strong>@ViewBag.Message <p>Click here to</p> @Html.ActionLink("Login", "Login", "Account")
+    </div>
+}
 <br />
 <div class="container-fluid">
     <div class="row">
@@ -13,7 +19,9 @@
             <img src="~/images/refueling.png" alt="pic" style="float:left" width="600" height="400" />
         </div>
         <div class="col-md-6 col-lg-6 col-sm-6">
-            <h3>Refueling Services</h3>
+            <div style="text-align:center; padding-top:10px">
+                <h4 style="color:#0ca2cf !important;">Refueling Services</h4>
+            </div>
             <hr />
             <p>
                 Ground Handling being an  integral part of Air Operations, is performed under ramp security regulations, taking the necessary precautions against all risks. High standard of flight ground safety and smooth conduct of operations are our primary motive. Ramp Services starts with entering of air-plane into frequency and finalized with push-back (pushing of the aircraft). All specialized equipment is operated by highly trained personnel for successful accomplishment of ramp services.
@@ -23,8 +31,8 @@
     </div>
     <div class="row">
         <div class="col-6 col-sm-6 col-lg-6"></div>
-        <div class="col-6 col-sm-6 col-lg-6">
-            @Html.ActionLink("Click to get Refueling", "GetRefueling", "Services", new { area = "" }, new { @class = "btn btn-primary" })
+        <div class="col-6 col-sm-6 col-lg-6" style="text-align:center">
+            @Html.ActionLink("Click to get Refueling", "GetRefueling", "Services", new { area = "" }, new { @class = "btn btn-default" })
         </div>
     </div>
 

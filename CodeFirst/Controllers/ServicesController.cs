@@ -24,12 +24,16 @@ namespace CodeFirst.Controllers
         
         public ActionResult GetGroundHandling()
         {
-            if (Session["Email"] == null)
+            if (Session["Email"] != null)
             {
-                ViewBag.ErrorMessage = "Login to access services";
-                return RedirectToAction("Login", "Account");
+                return View();
             }
-            return View();
+            else
+            {
+                ViewBag.Message = "Please Login to Access the Services";
+                
+            }
+            return View("GroundHandling");
         }
 
         [HttpPost]
@@ -56,11 +60,16 @@ namespace CodeFirst.Controllers
 
         public ActionResult GetRefueling()
         {
-            if (Session["Email"] == null)
+            if (Session["Email"] != null)
             {
-                return RedirectToAction("Login", "Account");
+                return View();
             }
-            return View();
+            else
+            {
+                ViewBag.Message = "Please Login to Access the Services";
+
+            }
+            return View("Refueling");
         }
 
         [HttpPost]
@@ -88,11 +97,16 @@ namespace CodeFirst.Controllers
 
         public ActionResult GetCattering()
         {
-            if (Session["Email"] == null)
+            if (Session["Email"] != null)
             {
-                return RedirectToAction("Login", "Account");
+                return View();
             }
-            return View();
+            else
+            {
+                ViewBag.Message = "Please Login to Access the Services";
+
+            }
+            return View("Cattering");
         }
 
         [HttpPost]
@@ -119,11 +133,16 @@ namespace CodeFirst.Controllers
 
         public ActionResult GetOverFlyPermit()
         {
-            if (Session["Email"] == null)
+            if (Session["Email"] != null)
             {
-                return RedirectToAction("Login", "Account");
+                return View();
             }
-            return View();
+            else
+            {
+                ViewBag.Message = "Please Login to Access the Services";
+
+            }
+            return View("OverFlyPermit");
         }
 
         [HttpPost]
