@@ -2,14 +2,15 @@
     ViewBag.Title = "Home Page";
 }
 
-<!--A Design by W3layouts
-   Author: W3layout
-   Author URL: http://w3layouts.com
-   License: Creative Commons Attribution 3.0 Unported
-   License URL: http://creativecommons.org/licenses/by/3.0/
-   -->
-<!DOCTYPE html>
-<html lang="zxx">
+@TempData["Result"]
+
+    <script>
+        window.onload(function () {
+            alert(@TempData["Result"]);
+        });
+    </script>
+
+
 <head>
     <title>ALN-AVIATION</title>
     <link rel="icon" type="image/ico" href="http://www.iconarchive.com/download/i107646/google/noto-emoji-travel-places/42586-airplane.ico" />
@@ -399,12 +400,6 @@
                     </div>
                 </form>
             </div>
-            <div class=" bottom-head text-center">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Etiam sed odio consequat, tristique elit sed, molestie nulla.
-                </p>
-            </div>
         </div>
     </div>
     <!--//newsletter -->
@@ -418,10 +413,10 @@
                         <ul class="slides">
                             <li>
                                 <div class="col-md-3 col-sm-3 col-xs-3 usr-img">
-                                    <img src="images/logo1.jpg" alt="logo1" class="img-responsive">
+                                    <img src="~/images/logo1.jpg" alt="logo1" class="img-responsive">
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3 usr-img">
-                                    <img src="images/logo2.jpg" alt="logo1" class="img-responsive">
+                                    <img src="~/images/logo2.jpg" alt="logo1" class="img-responsive">
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3 usr-img">
                                     <img src="images/logo3.jpg" alt="logo1" class="img-responsive">
@@ -452,15 +447,7 @@
             <div class="clearfix"> </div>
         </div>
     </div>
-    <!--//partners -->
-    <!--footer -->
-    <!--//footer -->
-    <!--js working-->
-    @*<script src='js/jquery-2.2.3.min.js'></script>*@
     <script src="~/Scripts/jquery-2.2.3.min.js"></script>
-    <!-- //js  working-->
-    <!-- banner-->
-    @*<script src="js/responsiveslides.min.js"></script>*@
     <script src="~/Scripts/responsiveslides.min.js"></script>
     <script>
         // You can also use "$(window).load(function() {"
@@ -530,4 +517,3 @@
     @*<script src="js/bootstrap.js"></script>*@
     <!--// bootstrap-->
 </body>
-</html>

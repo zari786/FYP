@@ -11,11 +11,6 @@ namespace CodeFirst.Models
     public class Customer
     {
 
-        public Customer()
-        {
-            services = new List<Services>();
-        }
-
         [Key]
         public int CustomerId { get; set; }
 
@@ -56,7 +51,10 @@ namespace CodeFirst.Models
         [ScaffoldColumn(false)]
         public string ResetPassword { get; set; }
 
-        public List<Services> services { get; set; }
+        [ScaffoldColumn(false)]
+        public bool IsSchedule { get; set; }
+
+
 
     }
 }

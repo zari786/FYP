@@ -39,15 +39,13 @@ namespace CodeFirst.Controllers
 
             //CountryList.Sort();
             //ViewBag.CountryList = CountryList;
+            //ViewData["CountryList"] = CountryList;
             return View();
         }
         
         [HttpPost]
         public ActionResult Register([Bind(Exclude ="IsEmailVerified,ActivationCode")] Customer account)
         {
-            SelectList list = new SelectList("CountryList");
-            account.Country = list.ToString();
-
             bool Status = false;
             string message = "";
             if (ModelState.IsValid)
@@ -116,7 +114,9 @@ namespace CodeFirst.Controllers
                         }
                         else
                         {
-                            return RedirectToAction("Index", "Home");
+                            message = "Welcome back1! " + login.Email;
+                            TempData["Result"] = message;
+                            return new RedirectResult(@"~\Home\Index\");
                         }
                     }
                     else
@@ -131,8 +131,8 @@ namespace CodeFirst.Controllers
             }
             else if(result2 != null)
             {
-                return RedirectToAction("Pending", "Admin");
-                
+                Session["Email"] = admin.Email;
+                return RedirectToAction("Pending", "Admin"); 
             }
             else {
                 message = "Account Does Not Exist";

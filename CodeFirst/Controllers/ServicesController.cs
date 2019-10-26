@@ -10,6 +10,7 @@ namespace CodeFirst.Controllers
 {
     public class ServicesController : Controller
     {
+        DBContext dBContext = new DBContext();
         // GET: Services
         public ActionResult Index()
         {
@@ -39,17 +40,21 @@ namespace CodeFirst.Controllers
         [HttpPost]
         public ActionResult GetGroundHandling(Services services)
         {
+            string message = "";
+            string error = null;
             if (ModelState.IsValid)
             {
-                using (DBContext dBContext = new DBContext())
-                {
-                        dBContext.services.Add(services);
-                        dBContext.SaveChanges();
-                        ModelState.Clear();
-                    return RedirectToAction("Index" , "Home");
-                }
+                dBContext.services.Add(services);
+                dBContext.SaveChanges();
+                ModelState.Clear();
+                message = "Your Request has been Submited Our Team Will Contact you in a while";
             }
-            ModelState.AddModelError("Error", "Eroor Occur");
+            else
+            {
+                error = "Your Request  Could not be Submited Please Try Again!";
+            }
+            ViewBag.Message = message;
+            ViewBag.Error = error;
             return View();
         }
 
@@ -75,17 +80,21 @@ namespace CodeFirst.Controllers
         [HttpPost]
         public ActionResult GetRefueling(Services services)
         {
+            string message = "";
+            string error = null;
             if (ModelState.IsValid)
             {
-                using (DBContext dBContext = new DBContext())
-                {
-                    dBContext.services.Add(services);
-                    dBContext.SaveChanges();
-                    ModelState.Clear();
-                    return RedirectToAction("Index", "Home");
-                }
+                dBContext.services.Add(services);
+                dBContext.SaveChanges();
+                ModelState.Clear();
+                message = "Your Request has been Submited Our Team Will Contact you in a while";
             }
-            ModelState.AddModelError("Error", "Eroor Occur");
+            else
+            {
+                error = "Your Request  Could not be Submited Please Try Again!";
+            }
+            ViewBag.Message = message;
+            ViewBag.Error = error;
             return View();
         }
 
@@ -112,17 +121,21 @@ namespace CodeFirst.Controllers
         [HttpPost]
         public ActionResult GetCattering(Services services)
         {
+            string message = "";
+            string error = null;
             if (ModelState.IsValid)
             {
-                using (DBContext dBContext = new DBContext())
-                {
-                    dBContext.services.Add(services);
-                    dBContext.SaveChanges();
-                    ModelState.Clear();
-                    return RedirectToAction("Index", "Home");
-                }
+                dBContext.services.Add(services);
+                dBContext.SaveChanges();
+                ModelState.Clear();
+                message = "Your Request has been Submited Our Team Will Contact you in a while";
             }
-            ModelState.AddModelError("Error", "Eroor Occur");
+            else
+            {
+                error = "Your Request  Could not be Submited Please Try Again!";
+            }
+            ViewBag.Message = message;
+            ViewBag.Error = error;
             return View();
         }
 
@@ -148,17 +161,21 @@ namespace CodeFirst.Controllers
         [HttpPost]
         public ActionResult GetOverFlyPermit(Services services)
         {
+            string message = "";
+            string error = null;
             if (ModelState.IsValid)
             {
-                using (DBContext dBContext = new DBContext())
-                {
-                    dBContext.services.Add(services);
-                    dBContext.SaveChanges();
-                    ModelState.Clear();
-                    return RedirectToAction("Index", "Home");
-                }
+                dBContext.services.Add(services);
+                dBContext.SaveChanges();
+                ModelState.Clear();
+                message = "Your Request has been Submited Our Team Will Contact you in a while";
             }
-            ModelState.AddModelError("Error", "Eroor Occur");
+            else
+            {
+                error = "Your Request  Could not be Submited Please Try Again!";
+            }
+            ViewBag.Message = message;
+            ViewBag.Error = error;
             return View();
         }
     }

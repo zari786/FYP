@@ -40,6 +40,8 @@
 
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
+
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-folder"></i>
@@ -102,7 +104,7 @@
                 <div class="pre-scrollable">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h4 class="card-header">Pending Posts</h4>
+                            <h4 class="card-header">Update status</h4>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered first">
@@ -222,7 +224,9 @@
                                                         @Html.DisplayFor(modelItem => item.ExitPoint)
                                                     </td>
 
-
+                                                    <td>
+                                                        @Html.ActionLink("Update", "UpdateStatusBool", new { id = item.ServicesId })
+                                                    </td>
                                                 </tr>
 
 
@@ -242,8 +246,6 @@
         </div>
 
     </div>
-    <!-- /.container-fluid -->
-    <!-- Sticky Footer -->
     <footer class="sticky-footer">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">

@@ -1,8 +1,6 @@
-﻿
+﻿@model CodeFirst.Models.Customer
+
 @{
-
-
-    ViewBag.Title = "Index";
     Layout = null;
 }
 @if (ViewBag.Message != null)
@@ -11,6 +9,9 @@
         <strong>Error!</strong>@ViewBag.Message
     </div>
 }
+<!DOCTYPE html>
+
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,28 +26,19 @@
     <!-- Custom styles for this template-->
     <link href="~/Admin/css/sb-admin.css" rel="stylesheet" />
 </head>
-<body id="page-top">
+<body>
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
         <a class="navbar-brand mr-1" href="/Admin/Index">ALN AVIATION ADMIN DASHBOARD</a>
         <div style="padding-left:900px">
             @Html.ActionLink("Logout", "Logout", "Account")
         </div>
     </nav>
 
-
     <div id="wrapper">
 
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>@Html.ActionLink("Index", "Index", "Admin")</span>
-
-                </a>
-            </li>
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,6 +46,7 @@
                     <span>@Html.ActionLink("Pending Posts", "Pending", "Admin")</span>
 
                 </a>
+
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -106,82 +99,88 @@
         <div id="content-wrapper">
 
             <div class="container-fluid">
+                <h3>Are you sure you want to delete this?</h3>
+                <div>
+                    <h4>UserAccount</h4>
+                    <hr />
+                    <div class="pre-scrollable">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </dt>
 
-                <!-- Breadcrumbs-->
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="#">Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item active">Overview</li>
-                </ol>
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
 
-                <!-- Icon Cards-->
-                <!-- /#wrapper -->
-                <!-- Sidebar -->
-                <div id="content-wrapper">
-                    <div class="container-fluid">
-                        <!-- Icon Cards-->
-                        <div class="row">
-                            <div class="col-xl-3 col-sm-6 mb-3">
-                                <div class="card text-white bg-primary o-hidden h-100">
-                                    <div class="card-body">
-                                        <div class="card-body-icon">
-                                            <i class="fas fa-fw fa-comments"></i>
-                                        </div>
-                                        <div class="mr-5"> Pending Post!</div>
-                                    </div>
-                                    <a class="card-footer text-white clearfix small z-1" href="#">
-                                        <span>@Html.ActionLink("View Details", "Pending", "Admin")</span>
-                                        <span class="float-right">
-                                            <i class="fas fa-angle-right"></i>
-                                        </span>
-                                    </a>
-                                </div>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Email)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Password)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Password)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Phone)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CompanyName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Address)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Country)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Country)
+                            </dd>
+
+                        </dl>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-default" /> |
+                                @Html.ActionLink("Back to List", "BlockCustomer")
                             </div>
-                            <div class="col-xl-3 col-sm-6 mb-3">
-                                <div class="card text-white bg-warning o-hidden h-100">
-                                    <div class="card-body">
-                                        <div class="card-body-icon">
-                                            <i class="fas fa-fw fa-list"></i>
-                                        </div>
-                                        <div class="mr-5">Customers</div>
-                                    </div>
-                                    <a class="card-footer text-white clearfix small z-1" href="#">
-                                        <span>@Html.ActionLink("View Details", "ViewCustomer", "Admin")</span>
-                                        <span class="float-right">
-                                            <i class="fas fa-angle-right"></i>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-sm-6 mb-3">
-                                <div class="card text-white bg-success o-hidden h-100">
-                                    <div class="card-body">
-                                        <div class="card-body-icon">
-                                            <i class="fas fa-fw fa-shopping-cart"></i>
-                                        </div>
-                                        <div class="mr-5">Schedule Flights</div>
-                                    </div>
-                                    <a class="card-footer text-white clearfix small z-1" href="#">
-                                        <span>@Html.ActionLink("View Details", "ScheduleFlights", "Admin")</span>
-                                        <span class="float-right">
-                                            <i class="fas fa-angle-right"></i>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        }
                     </div>
-
                 </div>
-
             </div>
+
         </div>
 
+
+
     </div>
-    <!-- Sticky Footer -->
     <footer class="sticky-footer">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
@@ -189,30 +188,30 @@
             </div>
         </div>
     </footer>
+
+
     <!-- /#wrapper -->
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Admin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="~/Admin/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/Admin/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/Admin/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Admin/js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="~/Admin/js/demo/datatables-demo.js"></script>
+    <script src="~/Admin/js/demo/chart-area-demo.js"></script>
 </body>
-
-<!-- Bootstrap core JavaScript-->
-<script src="~/Admin/vendor/jquery/jquery.min.js"></script>
-<script src="~/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-<!-- Page level plugin JavaScript-->
-<script src="~/Admin/vendor/chart.js/Chart.min.js"></script>
-<script src="~/Admin/vendor/datatables/jquery.dataTables.js"></script>
-<script src="~/Admin/vendor/datatables/dataTables.bootstrap4.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="~/Admin/js/sb-admin.min.js"></script>
-
-<!-- Demo scripts for this page-->
-<script src="~/Admin/js/demo/datatables-demo.js"></script>
-<script src="~/Admin/js/demo/chart-area-demo.js"></script>
-
-
+</html>

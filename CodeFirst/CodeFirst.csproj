@@ -1748,6 +1748,8 @@
     <Content Include="images\bb1.jpg" />
     <Content Include="images\bb2.jpg" />
     <Content Include="images\close.png" />
+    <Content Include="images\emirates_logo2.png" />
+    <Content Include="images\etihad-airways.png" />
     <Content Include="images\g1.jpg" />
     <Content Include="images\g2.jpg" />
     <Content Include="images\g3.jpg" />
@@ -1967,7 +1969,6 @@
     <Content Include="Views\Services\Cattering.cshtml" />
     <Content Include="Views\Services\OverFlyPermit.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_Admin.cshtml" />
     <Content Include="Views\Admin\Pending.cshtml" />
     <Content Include="Views\Services\GetGroundHandling.cshtml" />
@@ -1978,6 +1979,16 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Admin\AddScheduleFlight.cshtml" />
+    <Content Include="Views\Admin\BlockCustomer.cshtml" />
+    <Content Include="Views\Admin\CompletedPost.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\DeleteScheduleFlights.cshtml" />
+    <Content Include="Views\Admin\ScheduleFlights.cshtml" />
+    <Content Include="Views\Admin\UpdateStatus.cshtml" />
+    <Content Include="Views\Admin\ViewCustomer.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

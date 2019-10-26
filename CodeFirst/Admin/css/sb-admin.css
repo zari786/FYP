@@ -161,9 +161,9 @@ sup {
 }
 
 a {
-  color: cornsilk;
-  text-decoration: none;
-  background-color: transparent;
+    color: #ffc107;
+    text-decoration: none;
+    background-color: transparent;
 }
 
 a:hover {
@@ -6797,7 +6797,7 @@ button.bg-info:focus {
 }
 
 .bg-warning {
-  background-color: #ffc107 !important;
+    background-color: #17a2b8 !important;
 }
 
 a.bg-warning:hover, a.bg-warning:focus,
@@ -10392,13 +10392,11 @@ body {
   display: flex;
 }
 
-#wrapper #content-wrapper {
-  overflow-x: hidden;
-  width: 100vw;
-  padding-top: 1rem;
-  padding-left: 300px;
-  padding-bottom:300px;
-}
+    #wrapper #content-wrapper {
+        overflow-x: hidden;
+        width: 100vw;
+        padding-top: 1rem;
+    }
 
 .scroll-to-top {
   position: fixed;
